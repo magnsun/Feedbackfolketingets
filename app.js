@@ -1,11 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const perosnRoutes = require('./routes/personRoutes');
+const personRoutes = require('./routes/personRoutes');
 
 const app = express();
 
 // Connection to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/myDatabase')
+mongoose.connect('mongodb://127.0.0.1:27017/mydatabase')
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Could not connect to MongoDB:', err));
 
@@ -13,7 +13,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/myDatabase')
 app.use(express.json());
 
 // Routes
-app.use('/folketingets', perosnRoutes);
+app.use('/folketingets', personRoutes);
 
 // Starts the server
 app.listen(3000, () => {
